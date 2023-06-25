@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "index-van-tabbar-item-icon": "/pages/home/index-van-tabbar-item-icon"
+  }
+}

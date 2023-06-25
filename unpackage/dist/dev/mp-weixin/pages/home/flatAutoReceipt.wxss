@@ -1,0 +1,7 @@
+
+.remember {
+	float: right;
+	margin-right: 1rem;
+	font-size: 12px
+}
+

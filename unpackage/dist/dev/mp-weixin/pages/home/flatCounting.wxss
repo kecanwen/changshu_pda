@@ -1,0 +1,18 @@
+
+ .van-nav-bar{
+	height: 100px;
+}
+ .van-ellipsis {
+	white-space: pre-wrap !important;
+	    text-overflow: clip !important;
+		line-height: 1 !important;
+}
+.remember {
+	float: right;
+	margin-right: 1rem;
+	font-size: 12px
+}
+ .van-nav-bar__title{
+	font-size: 10px !important;
+}
+

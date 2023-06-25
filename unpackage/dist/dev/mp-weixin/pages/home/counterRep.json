@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "补盘",
+  "usingComponents": {
+    "van-select": "/components/VanFieldSelectPicker"
+  }
+}

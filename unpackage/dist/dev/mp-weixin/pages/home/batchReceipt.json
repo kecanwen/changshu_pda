@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "批量收货",
+  "usingComponents": {
+    "van-select": "/components/VanFieldSelectPicker"
+  }
+}

@@ -1,0 +1,18 @@
+
+.remember {
+	float: right;
+	margin-right: 1rem;
+	font-size: 12px
+}
+.cancel{
+    display: block;
+	text-align:right;
+	margin:0px auto 0px auto;   
+	font-size: 15px;
+	color:#007AFF;
+	padding: 0.5rem;
+}
+.van-pull-refresh{
+	overflow: initial !important;
+}
+

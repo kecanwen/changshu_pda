@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "取消收货",
+  "usingComponents": {
+    "van-select": "/components/VanFieldSelectPicker"
+  }
+}

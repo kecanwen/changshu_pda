@@ -1,0 +1,299 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+
+
+		{
+			"path": "pages/home/index",
+			"style": {
+				"navigationBarTitleText": "主页"
+
+			}
+		},
+
+
+		{
+
+			"path": "pages/index/login",
+
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+
+
+		},
+       
+    {
+
+			"path": "pages/index/language",
+
+			"style": {
+				"navigationBarTitleText": "语言"
+			}
+
+
+		},
+
+		{
+			"path": "pages/home/receipt",
+			"style": {
+				"navigationBarTitleText": "收货"
+
+			}
+		},
+		{
+			"path": "pages/home/cancelReceive",
+			"style": {
+				"navigationBarTitleText": "取消收货"
+		
+			}
+		},
+
+		{
+			"path": "pages/home/picking",
+
+			"style": {
+				"navigationBarTitleText": "拣货"
+
+			}
+		},
+		{
+			"path": "pages/home/counting",
+		
+			"style": {
+				"navigationBarTitleText": "盘点"
+		
+			}
+		},
+		{
+			"path": "pages/home/putaway",
+		
+			"style": {
+				"navigationBarTitleText": "上架"
+		
+			}
+		},
+		{
+			"path": "pages/home/replenishment",
+		
+			"style": {
+				"navigationBarTitleText": "补货"
+		
+			}
+		},
+		{
+			"path": "pages/home/sampling",
+		
+			"style": {
+				"navigationBarTitleText": "抽样"
+		
+			}
+		},
+		{
+			"path": "pages/home/displacement",
+		
+			"style": {
+				"navigationBarTitleText": "移位"
+		
+			}
+		},
+		{
+			"path": "pages/home/vehicleIn",
+		
+			"style": {
+				"navigationBarTitleText": "载具上架"
+		
+			}
+		},
+		{
+			"path": "pages/home/groupDisk",
+		
+			"style": {
+				"navigationBarTitleText": "组盘"
+		
+			}
+		},
+		{
+			"path": "pages/home/counter",
+		
+			"style": {
+				"navigationBarTitleText": "电子货柜"
+		
+			}
+		},
+		{
+			"path": "pages/home/counterReceipt",
+		
+			"style": {
+				"navigationBarTitleText": "收货"
+		
+			}
+		},
+		{
+			"path": "pages/home/counterRep",
+		
+			"style": {
+				"navigationBarTitleText": "补盘"
+		
+			}
+		},
+		{
+			"path": "pages/home/counterDP",
+		
+			"style": {
+				"navigationBarTitleText": "下架"
+		
+			}
+		},
+		{
+			"path": "pages/home/autoReceipt",
+		
+			"style": {
+				"navigationBarTitleText": "自动收货"
+		
+			}
+		},
+		{
+			"path": "pages/home/flatPicking",
+		
+			"style": {
+				"navigationBarTitleText": "平库拣货"
+		
+			}
+		},
+		{
+			"path": "pages/home/flatCounting",
+		
+			"style": {
+				"navigationBarTitleText": "平库盘点"
+		
+			}
+		},
+		{
+			"path": "pages/home/flatAutoReceipt",
+		
+			"style": {
+				"navigationBarTitleText": "平库自动收货"
+		
+			}
+		},
+		{
+			"path": "pages/home/flatReceipt",
+		
+			"style": {
+				"navigationBarTitleText": "平库收货"
+		
+			}
+		},
+		{
+			"path": "pages/home/pickticket",
+		
+			"style": {
+				"navigationBarTitleText": "平库拣货单"
+		
+			}
+		},
+		{
+			"path": "pages/home/flat",
+			
+				"style": {
+					"navigationBarTitleText": "平库"
+			
+				}
+		},
+		{
+			"path": "pages/home/mvCount",
+		
+			"style": {
+				"navigationBarTitleText": "平库盘点单"
+		
+			}
+		},
+		{
+			"path": "pages/home/batchReceipt",
+		
+			"style": {
+				"navigationBarTitleText": "批量收货"
+		
+			}
+		},
+		{
+			"path": "pages/home/flatBatchReceipt",
+		
+			"style": {
+				"navigationBarTitleText": "平库批量收货"
+		
+			}
+		},
+		{
+			"path": "pages/home/flatBatchReceipt",
+		
+			"style": {
+				"navigationBarTitleText": "平库批量收货"
+		
+			}
+		},
+		{
+			"path": "pages/home/autoHandle",
+		
+			"style": {
+				"navigationBarTitleText": "批量处理"
+		
+			}
+		},
+		{
+			"path": "pages/home/autoTransferHandle",
+		
+			"style": {
+				"navigationBarTitleText": "调拨处理"
+		
+			}
+		},
+		{
+			"path": "pages/home/flatGroupDisk",
+		
+			"style": {
+				"navigationBarTitleText": "平库组盘"
+		
+			}
+		},
+		{
+			"path": "pages/home/shipOrder",
+		
+			"style": {
+				"navigationBarTitleText": "发货单"
+		
+			}
+		},
+		{
+			"path": "pages/home/autoShip",
+		
+			"style": {
+				"navigationBarTitleText": "平库拣货"
+		
+			}
+		},
+		{
+			"path": "pages/home/relocation",
+		
+			"style": {
+				"navigationBarTitleText": "平库移库"
+		
+			}
+		},
+		{
+			"path": "pages/test/test",
+			"style": {
+				"navigationBarTitleText": "T"
+			}
+		}
+		
+		
+		
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "登录",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+}

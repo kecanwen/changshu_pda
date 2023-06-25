@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "平库自动收货",
+  "usingComponents": {
+    "van-select": "/components/VanFieldSelectPicker"
+  }
+}

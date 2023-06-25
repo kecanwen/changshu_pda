@@ -1,0 +1,15 @@
+
+.van-pull-refresh{
+	overflow:auto;
+}
+.goods-card {
+    margin: 0;
+    background-color: @white;
+}
+.delete-button {
+    height: 100%;
+}
+.van-card__content {
+      min-height: 0px !important;
+}
+

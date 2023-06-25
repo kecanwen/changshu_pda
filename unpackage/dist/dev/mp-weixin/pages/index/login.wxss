@@ -1,0 +1,22 @@
+
+.remember {
+	float: right;
+	margin-right: 1rem;
+	font-size: 8px
+}
+.logo {
+	text-align: center;
+	margin: 0 auto;
+}
+.lang {
+	text-align: right;
+	margin: 1rem auto 1rem auto;
+	font-size: 15px;
+	/*color:#007AFF;*/
+	color: blue;
+	padding: 0.5rem;
+}
+.white_line{
+	height:16px;
+}
+

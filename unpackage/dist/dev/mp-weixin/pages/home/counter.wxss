@@ -1,0 +1,11 @@
+
+._a{
+	
+color: #1989fa;
+}._p{
+	margin: 20px;
+	font-size:17px;
+}.van-cell{
+	margin: 20px;
+}
+

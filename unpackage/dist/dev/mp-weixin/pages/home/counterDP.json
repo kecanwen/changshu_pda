@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "下架",
+  "usingComponents": {
+    "van-select": "/components/VanFieldSelectPicker"
+  }
+}

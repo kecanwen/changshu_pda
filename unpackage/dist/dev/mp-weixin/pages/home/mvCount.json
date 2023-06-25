@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "平库盘点单",
+  "usingComponents": {
+    "van-select": "/components/VanFieldSelectPicker"
+  }
+}

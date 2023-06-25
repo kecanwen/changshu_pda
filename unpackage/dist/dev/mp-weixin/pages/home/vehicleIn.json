@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "载具上架",
+  "usingComponents": {
+    "van-select": "/components/VanFieldSelectPicker"
+  }
+}
