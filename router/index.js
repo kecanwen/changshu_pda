@@ -12,22 +12,18 @@ const router = new Router({
 //全局路由前置守卫
 router.beforeEach((to, from, next) => {
 	//这里写登录拦截（我没有写全，如果获取到了token就不用跳转到登录页，就直接next()）
-
-	   if (to.requiresAuth) {
-		   
-		   var token=window.localStorage.getItem('token');
-		   
-	   	if (token== null||token == ""||new Date()>window.localStorage.getItem('expired')) {
-			
+	if (to.requiresAuth) {
+		var token = window.localStorage.getItem('token');
+		if (!token) {
 			window.localStorage.setItem('userid', '');
 			window.localStorage.setItem('username', '');
 			window.localStorage.setItem('token', '');
-			window.localStorage.setItem('expired','');
-			
-			router.push({path:'/pages/index/login'});
-	   	}
-	   }
-
+			window.localStorage.setItem('expired', '');
+			router.push({
+				path: '/pages/index/login'
+			});
+		}
+	}
 	next();
 })
 // 全局路由后置守卫

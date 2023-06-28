@@ -105,11 +105,8 @@
 							window.localStorage.setItem('userid', response.data.userId);
 							window.localStorage.setItem('username', response.data.userName);
 							window.localStorage.setItem('token', response.data.data.token);
-							var date = new Date();
-							/*window.localStorage.setItem('expired', date.setSeconds(date.getSeconds() + response.data
-								.token.response.expires_in) - 1000);*/
 							uni.navigateTo({
-								url: "pages/home/index"
+								url: "/pages/home/index",
 							});
 						} else {
 							Toast({
@@ -137,10 +134,7 @@
 
 <style>
 	.login{
-		background: #8e9eab;  /* fallback for old browsers */
-		background: -webkit-linear-gradient(to bottom, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
-		background: linear-gradient(to bottom, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+		background: linear-gradient(to top, #eef2f3, #8e9eab);
 	}
 
 	.van-form{
