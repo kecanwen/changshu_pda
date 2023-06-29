@@ -2,7 +2,7 @@ function getZhCNLang () {
    config = {
      	lang:[{
      		code:'zh_CN',name:'简体中文'},
-     		{code:'en',name:'英文'},		
+     		{code:'en',name:'英文'},
      		],
      	vanPicker:{
      		confirm:'确定',
@@ -49,7 +49,7 @@ function getZhCNLang () {
      		shipOrder:['发货单',1,[4]],
      		relocation:['平库移库',1,[4]],
      		signout:['退出',1,[0,1,2,3,4]]
-     		
+
      	},
      	picking:{
      		title:'拣货',
@@ -210,7 +210,7 @@ function getZhCNLang () {
      		serialNo:['序列号',0],
      		inventoryStatu:['质检',1],
      		inventoryStatusCode:['Qualified','Unqualified','WaitToQualified'],
-     		inventoryStatus:['合格','不合格','待检'],
+     		inventoryStatus:['普通入库','特殊入库','空托盘入库'],
      		isWeipan:['是否零托',1],
      		cancelReceive:['取消收货',1],
      		submit:'提交',
@@ -307,7 +307,7 @@ function getZhCNLang () {
      		putawaySuccessMsg:'上架成功',
      		putawayErrorMsg:'上架失败',
      		inventoryDetailErrorMsg:'获取库存明细失败',
-     		receiptErrorMsg:'收货失败',	
+     		receiptErrorMsg:'收货失败',
      	},
 		groupDisk:{
 			title:'组盘',
@@ -531,7 +531,7 @@ function getZhCNLang () {
 			countSuccessMsg:'盘点成功',
 			countErrorMsg:'盘点失败',
 			countLocationErrorMsg:'当前位置不是盘点任务所在位置'
-			
+
 		},
 		flatAutoReceipt:{
 			title:'平库自动收货',

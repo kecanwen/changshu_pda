@@ -16,7 +16,6 @@ import {
 
 import codeHelper from './static/configure/codeHelper';
 import apiUrl from './static/configure/url';
-
 Vue.prototype.codeHelper=getCodeHelper();
 Vue.prototype.apiUrl=getBaseUrl();
 //Vue.prototype.debounce= debounce(fn,wait);
@@ -25,7 +24,7 @@ Vue.config.productionTip = false
 
 App.mpType = 'app'
 
-import i18n from './lang/index' 
+import i18n from './lang/index'
 Vue.prototype._i18n = i18n
 
 const app = new Vue({
@@ -35,14 +34,14 @@ const app = new Vue({
 import {Toast} from 'vant';
 
 import { Locale } from 'vant';
-	
+
 axios.interceptors.request.use(
 	config => {
 		let token = window.localStorage.getItem('token');
 		if (token != null && token != "" && new Date() <= window.localStorage.getItem('expired')) {
 			config.headers.Authorization = "Bearer " + token;
 		}
-		
+
 		//config.headers.connection="keep-alive";
 
 		return config;
@@ -57,7 +56,7 @@ axios.interceptors.response.use(
 	response => {
 
 		if (response.config.url.startsWith(getBaseUrl().middleapiUrl)) {
-			
+
 			if (response.data.toString().indexOf("<Code><Value>Sender</Value></Code")>-1) {
 				Toast({
 					message:response.data.substring(response.data.indexOf('<Text xml:lang="zh-CN">')+23,response.data.indexOf('</Text>'))
