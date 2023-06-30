@@ -37,6 +37,10 @@
 
 <script>
 	import select from '../../components/VanFieldSelectPicker.vue';
+	import uniTable from '../../components/uni-table/components/uni-table/uni-table';
+	import uniTr from '../../components/uni-table/components/uni-tr/uni-tr';
+	import uniTh from '../../components/uni-table/components/uni-th/uni-th';
+	import uniTd from '../../components/uni-table/components/uni-td/uni-td';
 
 	import {
 		PullRefresh
@@ -50,7 +54,11 @@
 
 	export default {
 		components: {
-			'van-select': select
+			'van-select': select,
+			uniTable,
+			uniTr,
+			uniTh,
+			uniTd
 		},
 		data() {
 			return {
