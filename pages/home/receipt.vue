@@ -27,9 +27,7 @@
 				<uni-th align="center">收货数量</uni-th>
 			</uni-tr>
 			<uni-tr>
-				<uni-td>111111</uni-td>
-				<uni-td>2222</uni-td>
-				<uni-td>3333</uni-td>
+				<uni-td v-for="item in receiptOrderList">111111</uni-td>
 			</uni-tr>
 		</uni-table>
 	</view>
@@ -37,6 +35,10 @@
 
 <script>
 	import select from '../../components/VanFieldSelectPicker.vue';
+	import uniTable from '../../components/uni-table/components/uni-table/uni-table';
+	import uniTr from '../../components/uni-table/components/uni-tr/uni-tr';
+	import uniTh from '../../components/uni-table/components/uni-th/uni-th';
+	import uniTd from '../../components/uni-table/components/uni-td/uni-td';
 
 	import {
 		PullRefresh
@@ -50,7 +52,11 @@
 
 	export default {
 		components: {
-			'van-select': select
+			'van-select': select,
+			uniTable,
+			uniTr,
+			uniTh,
+			uniTd
 		},
 		data() {
 			return {
