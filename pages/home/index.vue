@@ -2,10 +2,10 @@
 	<van-form>
 		<van-row gutter="24" v-for="item in tabbars" v-show="item.index==currIndex ? true:false">
 			<van-col span="8" v-show='i18n.receipt[1]==1&&i18n.receipt[2].indexOf(item.index)>-1'><a
-					href="/#/pages/home/receipt" class="receipt"></a>
+					href="/#/pages/home/receiveOrder" class="receipt"></a>
 				<p>{{i18n.receipt[0]}}</p>
 			</van-col>
-			
+
 			<!--new pos-->
 			<van-col span="8" v-show='i18n.pickticket[1]==1&&i18n.pickticket[2].indexOf(item.index)>-1'><a
 					href="/#/pages/home/pickticket" class="pickticket"></a>

@@ -10,25 +10,25 @@ const home = [{
 		},
 	},
 	{
-	
+
 		path: "/pages/index/language",
 	    name:"language",
-	    requiresAuth: false, 
+	    requiresAuth: false,
 		meta: {
 		title: '语言',
 		},
 	 },
 	{
-		path: '/pages/home/receipt',
+		path: '/pages/home/receiveOrder',
 		name: 'receipt',
-		requiresAuth: true, 
+		requiresAuth: true,
 		meta: {
 			title: '收货',
 		},
 	}, {
 		path: '/pages/home/cancelReceive',
 		name: 'cancelReceive',
-		requiresAuth: true, 
+		requiresAuth: true,
 		meta: {
 			title: '取消收货',
 		},
@@ -43,7 +43,7 @@ const home = [{
 	{
 		path: "/pages/home/counting",
 	    name: 'counting',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '盘点',
 	   },
@@ -51,7 +51,7 @@ const home = [{
 	{
 		path: "/pages/home/putaway",
 	    name: 'putaway',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '上架',
 	   },
@@ -59,7 +59,7 @@ const home = [{
 	{
 		path: "/pages/home/replenishment",
 	    name: 'replenishment',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '补货',
 	   },
@@ -67,7 +67,7 @@ const home = [{
 	{
 		path: "/pages/home/sampling",
 	    name: 'sampling',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '抽样',
 	   },
@@ -75,7 +75,7 @@ const home = [{
 	{
 		path: "/pages/home/displacement",
 	    name: 'displacement',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '移位',
 	   },
@@ -83,7 +83,7 @@ const home = [{
 	{
 		path: "/pages/home/vehicleIn",
 	    name: 'vehicleIn',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '载具入库',
 	   },
@@ -91,7 +91,7 @@ const home = [{
 	{
 		path: "/pages/home/groupDisk",
 	    name: 'groupDisk',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '组盘',
 	   },
@@ -99,7 +99,7 @@ const home = [{
 	{
 		path: "/pages/home/counter",
 	    name: 'counter',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '电子货柜',
 	   },
@@ -107,7 +107,7 @@ const home = [{
 	{
 		path: "/pages/home/counterReceipt",
 	    name: 'counterReceipt',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '收货',
 	   },
@@ -115,7 +115,7 @@ const home = [{
 	{
 		path: "/pages/home/counterRep",
 	    name: 'counterRep',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '补盘',
 	   },
@@ -123,7 +123,7 @@ const home = [{
 	{
 		path: "/pages/home/counterDP",
 	    name: 'counterDP',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '收货',
 	   },
@@ -131,7 +131,7 @@ const home = [{
 	{
 		path: "/pages/home/autoReceipt",
 	    name: 'autoReceipt',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '自动收货',
 	   },
@@ -139,7 +139,7 @@ const home = [{
 	{
 		path: "/pages/home/flatPicking",
 	    name: 'flatPicking',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '平库拣货',
 	   },
@@ -147,7 +147,7 @@ const home = [{
 	{
 		path: "/pages/home/flatCounting",
 	    name: 'flatCounting',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '平库盘点',
 	   },
@@ -155,7 +155,7 @@ const home = [{
 	{
 		path: "/pages/home/flatAutoReceipt",
 	    name: 'flatAutoReceipt',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '平库自动收货',
 	   },
@@ -163,7 +163,7 @@ const home = [{
 	{
 		path: "/pages/home/flatReceipt",
 	    name: 'flatReceipt',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '平库收货',
 	   },
@@ -171,7 +171,7 @@ const home = [{
 	{
 		path: "/pages/home/pickticket",
 	    name: 'pickticket',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '平库拣货单',
 	   },
@@ -179,7 +179,7 @@ const home = [{
 	{
 		path: "/pages/home/flat",
 	    name: 'flat',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '平库',
 	   },
@@ -187,7 +187,7 @@ const home = [{
 	{
 		path: "/pages/home/mvCount",
 	    name: 'mvCount',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '盘点',
 	   },
@@ -195,7 +195,7 @@ const home = [{
 	{
 		path: "/pages/home/batchReceipt",
 	    name: 'batchReceipt',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '批量收货',
 	   },
@@ -203,7 +203,7 @@ const home = [{
 	{
 		path: "/pages/home/flatBatchReceipt",
 	    name: 'batchReceipt',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '平库批量收货',
 	   },
@@ -211,7 +211,7 @@ const home = [{
 	{
 		path: "/pages/home/autoHandle",
 	    name: 'autoHandle',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '批量处理',
 	   },
@@ -219,7 +219,7 @@ const home = [{
 	{
 		path: "/pages/home/autoTransferHandle",
 	    name: 'autoTransferHandle',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '调拨处理',
 	   },
@@ -227,7 +227,7 @@ const home = [{
 	{
 		path: "/pages/home/flatGroupDisk",
 	    name: 'flatGroupDisk',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '平库组盘',
 	   },
@@ -235,7 +235,7 @@ const home = [{
 	{
 		path: "/pages/home/shipOrder",
 	    name: 'shipOrder',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '发货单',
 	   },
@@ -243,7 +243,7 @@ const home = [{
 	{
 		path: "/pages/home/autoShip",
 	    name: 'autoShip',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '平库拣货',
 	   },
@@ -251,7 +251,7 @@ const home = [{
 	{
 		path: "/pages/home/relocation",
 	    name: 'relocation',
-	    requiresAuth: true, 
+	    requiresAuth: true,
 	    meta: {
 			title: '平库移库',
 	   },

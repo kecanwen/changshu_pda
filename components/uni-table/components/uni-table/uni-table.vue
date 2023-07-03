@@ -1,7 +1,7 @@
 <template>
 	<view class="uni-table-scroll" :class="{ 'table--border': border, 'border-none': !noData }">
 		<!-- #ifdef H5 -->
-		<table class="uni-table" border="0" cellpadding="0" cellspacing="0" :class="{ 'table--stripe': stripe }" :style="{ 'min-width': minWidth + 'px' }">
+		<table class="uni-table" border="0" cellpadding="0" cellspacing="0" :class="{ 'table--stripe': stripe }">
 			<slot></slot>
 			<tr v-if="noData" class="uni-table-loading">
 				<td class="uni-table-text" :class="{ 'empty-border': border }">{{ emptyText }}</td>
@@ -90,10 +90,10 @@ export default {
 			if (this.theadChildren) {
 				rowspan = this.theadChildren.rowspan
 			}
-			
+
 			// this.trChildren.length - rowspan
 			this.noData = false
-			// this.noData = newVal.length === 0 
+			// this.noData = newVal.length === 0
 		}
 	},
 	created() {
@@ -247,9 +247,9 @@ export default {
 			if (!this.theadChildren) {
 				theadChildren = this.trChildren[0]
 			}
-			
-			
-			
+
+
+
 			let childDomIndex = this.trChildren.findIndex((item, index) => child === item)
 			if(childDomIndex < 0){
 				childDomIndex = this.data.findIndex(v=>v[this.rowKey] === keyValue) + 1

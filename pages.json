@@ -13,7 +13,7 @@
 				"navigationBarTitleText": "登录",
 				"navigationStyle": "custom",
 				"app-plus": {
-					"titleNView": false //禁用原生导航栏  
+					"titleNView": false //禁用原生导航栏
 				}
 			}
 		},
@@ -29,7 +29,7 @@
 		},
 
 		{
-			"path": "pages/home/receipt",
+			"path": "pages/home/receiveOrder",
 			"style": {
 				"navigationBarTitleText": "收货"
 
