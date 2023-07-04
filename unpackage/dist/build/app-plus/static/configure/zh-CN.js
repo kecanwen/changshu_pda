@@ -23,12 +23,12 @@ function getZhCNLang () {
      	},
      	index:{
      		title:'主页',
-			tabbars:[1,[{index:0,name: "/",title: /*"立库"*/"",isShow:1},{index:1,name: "/",title: /*"平库"*/"",isShow:1},{index:2,name: "/",title: "电子货柜",isShow:0},{index:3,name: "/",title: /*"立库特殊"*/"",isShow:1},{index:4,name: "/",title: /*"平库特殊"*/"",isShow:1}]],
+			tabbars:[1,[{index:0,name: "/",title: /*"立库"*/"",isShow:1},{index:1,name: "/",title: ""/*平库*/,isShow:1},{index:2,name: "/",title: "电子货柜",isShow:0},{index:3,name: "/",title: /*"立库特殊"*/"",isShow:1},{index:4,name: "/",title: /*"平库特殊"*/"",isShow:1}]],
 			//显示名,是否显示，所属菜单
      		receipt:['收货',1,[0]],
      		batchReceipt:['批量收货',1,[3]],
      		groupDisk:['组盘',1,[3]],
-     		picking:['拣货',1,[0]],
+     		picking:['拣货',0,[0]],
      		counting:['盘点',1,[0]],
      		putaway:['上架',1,[0]],
      		replenishment:['补货',1,[0]],
@@ -43,7 +43,8 @@ function getZhCNLang () {
      		flatReceipt:['平库收货',1,[1]],
      		flatBatchReceipt:['平库批收货',1,[4]],
      		flatGroupDisk:['平库组盘',1,[4]],
-     		pickticket:['拣货单',1,[1]],
+     		//pickticket:['拣货单',1,[1]],
+			pickticket:['拣货单',1,[0]],//?????????
      		mvCount:['盘点单',1,[1]],
      		flatPicking:['平库拣货',1,[4]],
      		shipOrder:['发货单',1,[4]],

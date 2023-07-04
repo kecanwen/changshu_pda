@@ -6,7 +6,7 @@
             </van-cell-group>
 
             <van-cell-group>
-                <van-field v-model="scanCode" label="条码"  @keyup.enter.native="scanMaterial(code)"/>
+                <van-field v-model="scanCode" label="条码"  @keyup.enter.native="scanMaterial($event)"/>
             </van-cell-group>
 
             <van-cell-group>
@@ -71,7 +71,7 @@
     methods: {
       //监听键盘事件 拿到扫码出来的字符串
       scanMaterial(code){
-        this.scanCode  = code.trim();
+        let scanCode  = this.scanCode;
         /**
          * materialsCode 物料码
          * batchNo 批次号
@@ -81,17 +81,19 @@
          * validityDate 有效期
          * size 尺寸
          * */
-        let [materialsCode,batchNo,unit,number,produceDate,validityDate,size] = code.split('/');
-        this.form.item.push({
+        let [materialsCode,batchNo,unit,number,produceDate,validityDate,size] = scanCode.split('/');
+        this.form.items.push({
           materialsCode,batchNo,unit,number,produceDate,validityDate,size
-        })
+        });
+		this.scanCode = '';
       },
       onSubmit() {
         this.loading = true;
         let _this = this;
         axios.post(this.apiUrl.apiUrl + '/ReceiveOrder/Add0rUpdate', {..._this.form
         }).then(res=>{
-          Toast({
+          this.loading = false;
+          uni.showToast({
             message:res.message || '新增成功'
           });
         })

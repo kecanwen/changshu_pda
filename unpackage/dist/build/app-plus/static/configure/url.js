@@ -1,8 +1,8 @@
 function getBaseUrl() {
 	let baseUrl = {
-		//securityapiUrl: "http://47.100.230.50:44388",
-		securityapiUrl: "http://localhost:44388",
-		apiUrl: "http://localhost:44349",
+		securityapiUrl: "http://120.210.205.177:83",
+		//securityapiUrl: "http://localhost:7194",
+		apiUrl: "http://localhost:7194",
 		middleapiUrl: "http://47.100.230.50:9877",
 		interfaceUrl: "http://47.100.230.50:8334"
 	}

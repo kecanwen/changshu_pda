@@ -1,6 +1,6 @@
 {
     "name" : "SiErTePDA",
-    "appid" : "__UNI__724627E",
+    "appid" : "__UNI__607897F",
     "description" : "",
     "versionName" : "1.0.0",
     "versionCode" : "100",
@@ -47,7 +47,9 @@
                 ]
             },
             /* ios打包配置 */
-            "ios" : {},
+            "ios" : {
+                "dSYMs" : false
+            },
             /* SDK配置 */
             "sdkConfigs" : {
                 "ad" : {}
