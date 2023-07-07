@@ -6,7 +6,8 @@
             </van-cell-group>
 
             <van-cell-group>
-                <van-field v-model="scanCode" label="条码"  @keyup.enter.native="scanMaterial($event)"/>
+               <!-- <van-field v-model="scanCode" label="条码"  @keyup.enter.native="scanMaterial($event)"/>-->
+                <van-field v-model="scanCode" label="条码"  @input.enter.native="scanMaterial($event)"/>
             </van-cell-group>
 
             <van-cell-group>
