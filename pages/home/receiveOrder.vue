@@ -94,9 +94,15 @@
         axios.post(this.apiUrl.apiUrl + '/ReceiveOrder/Add0rUpdate', {..._this.form
         }).then(res=>{
           this.loading = false;
-          uni.showToast({
-            message:res.message || '新增成功'
-          });
+          if(res.data.code == 200){
+              uni.showToast({
+                  message:res.data.msg || '新增成功'
+              });
+          }else{
+              uni.showToast({
+                  message:res.data.msg || '新增失败'
+              });
+          }
         })
       }
     }
