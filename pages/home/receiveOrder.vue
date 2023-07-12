@@ -28,9 +28,13 @@
                 <uni-th align="center">物料名称</uni-th>
                 <uni-th align="center">批次号</uni-th>
                 <uni-th align="center">收货数量</uni-th>
+                <uni-th align="center">操作</uni-th>
             </uni-tr>
-            <uni-tr v-for="item in form.items" :key="item.materialsCode">
-                <uni-td align="center" v-for="ite_child in columns" :key="ite_child.key">{{item[ite_child.key]}}</uni-td>
+            <uni-tr v-for="(item,index) in form.items" :key="item.materialsCode">
+                <uni-td align="center" v-for="ite_child in columns" :key="ite_child.key">
+                    <span v-if="ite_child.key=='delete'" style="color: #ce3c39" @click="deleteFn(item,index)">删除</span>
+                    <span v-else >{{item[ite_child.key]}}</span>
+                </uni-td>
             </uni-tr>
         </uni-table>
     </view>
@@ -65,11 +69,18 @@
         columns: [
           {key: 'materialsCode'},
           {key: 'batchNo'},
-          {key: 'number'}
+          {key: 'number'},
+          {key:'delete'}
         ]
       }
     },
     methods: {
+      deleteFn(item,index){
+        let list = this.form.items.filter((ite,idx)=>{
+          return idx !== index
+        })
+        this.form.items = list;
+      },
       //监听键盘事件 拿到扫码出来的字符串
       scanMaterial(code){
         let scanCode  = this.scanCode;
