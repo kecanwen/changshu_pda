@@ -106,13 +106,13 @@
         }).then(res=>{
           this.loading = false;
           if(res.data.code == 200){
-              uni.showToast({
-                  message:res.data.msg || '新增成功'
-              });
+            Toast({
+              message:res.data.msg || '新增成功'
+            });
           }else{
-              uni.showToast({
-                  message:res.data.msg || '新增失败'
-              });
+            Toast({
+              message:res.data.msg || '新增失败'
+            });
           }
         })
       }
