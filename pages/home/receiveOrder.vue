@@ -47,6 +47,7 @@
   import uniTh from '../../components/uni-table/components/uni-th/uni-th';
   import uniTd from '../../components/uni-table/components/uni-td/uni-td';
   import axios from 'axios';
+
   export default {
     name: "receiveOrder",
     components: {
@@ -60,7 +61,7 @@
       return {
         form: {
           PalletNo: '',
-          ReceiveType: '',
+          ReceiveType: '普通入库',
           items: [],
         },
         scanCode:'',
@@ -99,13 +100,20 @@
         });
 		this.scanCode = '';
       },
+      initFn() {
+        this.form = {
+          PalletNo: '',
+          ReceiveType: '普通入库',
+          items: [],
+        }
+      },
       onSubmit() {
         this.loading = true;
         let _this = this;
         axios.post(this.apiUrl.apiUrl + '/ReceiveOrder/Add0rUpdate', {..._this.form
         }).then(res=>{
           this.loading = false;
-          if(res.data.code == 200){
+          if(res.data.code === 200){
             Toast({
               message:res.data.msg || '新增成功'
             });
@@ -114,9 +122,11 @@
               message:res.data.msg || '新增失败'
             });
           }
+        }).finally(()=>{
+          this.initFn()
         })
       }
-    }
+      }
   }
 </script>
 
