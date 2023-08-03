@@ -36,6 +36,13 @@
 			}
 		},
 		{
+			"path": "pages/home/deliveryOrder",
+			"style": {
+				"navigationBarTitleText": "出库"
+
+			}
+		},
+		{
 			"path": "pages/home/cancelReceive",
 			"style": {
 				"navigationBarTitleText": "取消收货"

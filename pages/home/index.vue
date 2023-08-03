@@ -5,8 +5,10 @@
 					href="/#/pages/home/receiveOrder" class="receipt"></a>
 				<p>{{i18n.receipt[0]}}</p>
 			</van-col>
-
-			<!--new pos-->
+			<van-col span="8"><a
+					href="/#/pages/home/deliveryOrder" class="receipt"></a>
+				<p>出库</p>
+			</van-col>
 			<van-col span="8" v-show='i18n.pickticket[1]==1&&i18n.pickticket[2].indexOf(item.index)>-1'><a
 					href="/#/pages/home/pickticket" class="pickticket"></a>
 				<p>{{i18n.pickticket[0]}}</p>

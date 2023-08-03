@@ -25,7 +25,16 @@ const home = [{
 		meta: {
 			title: '收货',
 		},
-	}, {
+	},
+	{
+		path: '/pages/home/deliveryOrder',
+		name: 'deliveryOrder',
+		requiresAuth: true,
+		meta: {
+			title: '出库',
+		},
+	},
+	{
 		path: '/pages/home/cancelReceive',
 		name: 'cancelReceive',
 		requiresAuth: true,
