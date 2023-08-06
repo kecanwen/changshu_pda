@@ -4,6 +4,7 @@
             <van-cell-group>
                 <van-select label="出库口"
                             v-model="form.ReceiveType"
+                            option-label="Name"
                             :columns="inventoryStatusList">
                 </van-select>
             </van-cell-group>
@@ -114,9 +115,15 @@ export default {
             const { list } = await deliveryService.getOutWareTypeListApi();
             this.inventoryStatusList = list.map(item=>{
                 return {
-                    label:item.Name
+                    ...item,
+                    text:item.Name
                 }
             });
+            console.log(list,"_______")
+            console.log(list,"_______")
+            console.log(list,"_______")
+            console.log(list,"_______")
+            console.log(list,"_______")
         },
         onSubmit() {
             this.loading = true;
