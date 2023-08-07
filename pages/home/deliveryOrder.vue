@@ -3,22 +3,42 @@
         <van-form @submit="onSubmit">
             <van-cell-group>
                 <van-select label="出库口"
-                            v-model="form.ReceiveType"
+                            v-model="form.Destination"
                             option-label="Name"
+                            @defclick="getCheckResult"
                             :columns="inventoryStatusList">
                 </van-select>
             </van-cell-group>
             <van-cell-group>
-                <van-field v-model="form.PalletNo" label="托盘号"/>
+                <van-select label="单据类型"
+                            v-model="form.WaveType"
+                            :columns="orderList">
+                </van-select>
             </van-cell-group>
-
             <van-cell-group>
-                <!-- <van-field v-model="scanCode" label="条码"  @keyup.enter.native="scanMaterial($event)"/>-->
-                <van-field v-model="scanCode" label="条码"  @input.enter.native="scanMaterial($event)"/>
+                <van-select label="物料信息"
+                            v-model="form.materialsName"
+                            @defclick="getCheckResult2"
+                            :columns="materialsList">
+                </van-select>
             </van-cell-group>
-
-
-
+            <van-cell-group>
+                <van-field v-model="form.SumNumber" label="库存总数" disabled/>
+            </van-cell-group>
+            <van-cell-group>
+                <van-field
+                    label="出库数量"
+                    readonly
+                    clickable
+                    :value="form.Number"
+                    @touchstart.native.stop="showNumber = true"
+                />
+                <van-number-keyboard
+                    v-model="form.Number"
+                    :show="showNumber"
+                    @blur="checkSomeRule"
+                />
+            </van-cell-group>
             <div style="margin: 50px;">
                 <van-button :loading="loading" round block type="info" native-type="submit">
                     提交
@@ -27,10 +47,10 @@
         </van-form>
         <uni-table border stripe emptyText="暂无更多数据">
             <uni-tr>
-                <uni-th align="center">物料名称</uni-th>
-                <uni-th align="center">批次号</uni-th>
-                <uni-th align="center">收货数量</uni-th>
-                <uni-th align="center">操作</uni-th>
+                <uni-th align="center">库位</uni-th>
+                <uni-th align="center">物料代码</uni-th>
+                <uni-th align="center">生产日期</uni-th>
+                <uni-th align="center">数量</uni-th>
             </uni-tr>
             <uni-tr v-for="(item,index) in form.items" :key="item.materialsCode">
                 <uni-td align="center" v-for="ite_child in columns" :key="ite_child.key">
@@ -50,6 +70,7 @@ import uniTh from '../../components/uni-table/components/uni-th/uni-th';
 import uniTd from '../../components/uni-table/components/uni-td/uni-td';
 import axios from 'axios';
 import deliveryService from "../../server/deliveryOrder";
+import {Toast} from "vant";
 
 export default {
     name: "deliveryOrder",
@@ -62,23 +83,48 @@ export default {
     },
     data() {
         return {
+            showNumber:0,
             form: {
-                PalletNo: '',
-                ReceiveType: '普通入库',
+                Destination: '',//出库口
+                WaveType: '普通入库',//单据类型
+                Number:'',//数量
+                materialsName:'',//物料信息
+                materialsInstance:{},//物料  实体
+                SumNumber:'',
                 items: [],
             },
             scanCode:'',
             inventoryStatusList: [],
+            materialsList:[],
+            orderList:['普通出库','特殊出库'],
             loading: false,
             columns: [
-                {key: 'materialsCode'},
-                {key: 'batchNo'},
-                {key: 'number'},
-                {key:'delete'}
+                {key: 'CurrentLocation'},
+                {key: 'MaterialCode'},
+                {key: 'ProduceDate'},
+                {key:'Number'}
             ]
         }
     },
     methods: {
+        checkSomeRule(key){
+            this.showNumber = false
+            if(Number(this.form.Number) > Number(this.form.SumNumber)){
+                Toast({
+                    message:'出库数量不能大于库存总数'
+                });
+                this.form.Number = '';
+            }
+        },
+        getCheckResult(index){
+            this.form.Destination = this.inventoryStatusList[index];
+        },
+        getCheckResult2(index){
+            let instance = this.materialsList[index];
+            this.form.materialsInstance = instance;
+            this.form.SumNumber = instance.SumNumber;
+            this.form.materialsName = instance.materialsName;
+        },
         deleteFn(item,index){
             let list = this.form.items.filter((ite,idx)=>{
                 return idx !== index
@@ -86,28 +132,12 @@ export default {
             this.form.items = list;
         },
         //监听键盘事件 拿到扫码出来的字符串
-        scanMaterial(code){
-            let scanCode  = this.scanCode;
-            /**
-             * materialsCode 物料码
-             * batchNo 批次号
-             * unit 单包重量
-             * number 整托重量就是收货数量
-             * produceDate 生产日期
-             * validityDate 有效期
-             * size 尺寸
-             * */
-            let [materialsCode,batchNo,unit,number,produceDate,validityDate,size] = scanCode.split('/');
-            this.form.items.push({
-                materialsCode,batchNo,unit,number,produceDate,validityDate,size
-            });
-            this.scanCode = '';
-        },
         initFn() {
             this.getOutList();
+            this.getMaterialList();
             this.form = {
                 PalletNo: '',
-                ReceiveType: '普通入库',
+                WaveType: '普通入库',
                 items: [],
             }
         },
@@ -119,30 +149,20 @@ export default {
                     text:item.Name
                 }
             });
-            console.log(list,"_______")
-            console.log(list,"_______")
-            console.log(list,"_______")
-            console.log(list,"_______")
-            console.log(list,"_______")
         },
-        onSubmit() {
-            this.loading = true;
-            let _this = this;
-            axios.post(this.apiUrl.apiUrl + '/ReceiveOrder/Add0rUpdate', {..._this.form
-            }).then(res=>{
-                this.loading = false;
-                if(res.data.code === 200){
-                    Toast({
-                        message:res.data.msg || '新增成功'
-                    });
-                }else{
-                    Toast({
-                        message:res.data.msg || '新增失败'
-                    });
-                }
-            }).finally(()=>{
-                this.initFn()
-            })
+        async getMaterialList(){
+          const { list } = await deliveryService.getMaterialListApi({materialsStr :this.form.materialsName});
+          this.materialsList = list.map(item=>{
+              return {
+                  ...item,
+                  text:item.materialsName
+              }
+          })
+        },
+        async onSubmit() {
+            const { list } = await deliveryService.GetUnitLoadListApi(this.form)
+            this.form.items = list;
+            debugger
         }
     },
     created(){

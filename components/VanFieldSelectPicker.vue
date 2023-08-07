@@ -43,10 +43,8 @@
 		},
 		methods: {
 			onConfirm(value, index) {
-
-				this.result = value;
+				this.result = typeof (value) === 'string' ? value : value.text;
 				this.show = !this.show;
-
 				this.$emit('defclick', index);
 			},
 		},
