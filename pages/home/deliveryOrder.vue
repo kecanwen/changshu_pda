@@ -107,13 +107,16 @@ export default {
         }
     },
     methods: {
-        checkSomeRule(key){
+        async checkSomeRule(key){
             this.showNumber = false
             if(Number(this.form.Number) > Number(this.form.SumNumber)){
                 Toast({
                     message:'出库数量不能大于库存总数'
                 });
                 this.form.Number = '';
+            }else{
+                const { list } = await deliveryService.GetUnitLoadListApi(this.form)
+                this.form.items = list;
             }
         },
         getCheckResult(index){
@@ -121,9 +124,13 @@ export default {
         },
         getCheckResult2(index){
             let instance = this.materialsList[index];
-            this.form.materialsInstance = instance;
-            this.form.SumNumber = instance.SumNumber;
-            this.form.materialsName = instance.materialsName;
+            this.form = {
+                ...this.form,
+                materialsInstance:instance,
+                SumNumber:instance.SumNumber,
+                materialsName:instance.materialsName,
+                Number:''
+            }
         },
         deleteFn(item,index){
             let list = this.form.items.filter((ite,idx)=>{
@@ -160,9 +167,8 @@ export default {
           })
         },
         async onSubmit() {
-            const { list } = await deliveryService.GetUnitLoadListApi(this.form)
-            this.form.items = list;
-            debugger
+            const { msg } = await deliveryService.Add0rUpdateApi(this.form);
+            alert(msg)
         }
     },
     created(){
