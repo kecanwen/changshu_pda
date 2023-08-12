@@ -59,12 +59,14 @@
 				}).then(res => {
 					this.loading = false;
 					console.log(res.data.code);
-					if (res.data.code == 400) {
-						Toast({
+					if (res.data.code == 200) {
+						this.$toast.loading({
 							message: res.data.msg
 						});
+						this.pallet =''
+						this.fromLocCode =''
 					} else {
-						Toast({
+						this.$toast.loading({
 							message: res.data.msg
 						});
 					}

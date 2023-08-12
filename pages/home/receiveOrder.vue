@@ -114,11 +114,12 @@
         }).then(res=>{
           this.loading = false;
           if(res.data.code === 200){
-            Toast({
+			  debugger
+            this.$toast.loading({
               message:res.data.msg || '新增成功'
             });
           }else{
-            Toast({
+            this.$toast.loading({
               message:res.data.msg || '新增失败'
             });
           }
