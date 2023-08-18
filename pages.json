@@ -18,28 +18,28 @@
 			}
 		},
 		{
-
 			"path": "pages/index/language",
-
 			"style": {
 				"navigationBarTitleText": "语言"
 			}
-
-
 		},
-
 		{
 			"path": "pages/home/receiveOrder",
 			"style": {
 				"navigationBarTitleText": "收货"
-
+			}
+		},
+		{
+			"path": "pages/home/finishedProd",
+			"style": {
+				"navigationBarTitleText": "成品退库"
 			}
 		},
 		{
 			"path": "pages/home/deliveryOrder",
+
 			"style": {
 				"navigationBarTitleText": "出库"
-
 			}
 		},
 		{
@@ -49,13 +49,10 @@
 
 			}
 		},
-
 		{
 			"path": "pages/home/picking",
-
 			"style": {
 				"navigationBarTitleText": "拣货"
-
 			}
 		},
 		{

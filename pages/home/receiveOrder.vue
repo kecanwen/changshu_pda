@@ -98,7 +98,7 @@
         this.form.items.push({
           materialsCode,batchNo,unit,number,produceDate,validityDate,size
         });
-		this.scanCode = '';
+        this.scanCode = '';
       },
       initFn() {
         this.form = {

@@ -27,6 +27,14 @@ const home = [{
 		},
 	},
 	{
+		path: '/pages/home/finishedProd',
+		name: 'finishedProd',
+		requiresAuth: true,
+		meta: {
+			title: '成品退库',
+		},
+	},
+	{
 		path: '/pages/home/deliveryOrder',
 		name: 'deliveryOrder',
 		requiresAuth: true,
