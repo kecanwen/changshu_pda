@@ -2,12 +2,7 @@
     <view>
         <van-form @submit="onSubmit">
             <van-cell-group>
-                <van-select label="出库口"
-                            v-model="form.Destination"
-                            option-label="Name"
-                            @defclick="getCheckResult"
-                            :columns="inventoryStatusList">
-                </van-select>
+                <van-field v-model="form.Destination" label="出库口"  @input.enter.native="scanMaterial($event)"/>
             </van-cell-group>
             <van-cell-group>
                 <van-select label="单据类型"
@@ -51,6 +46,7 @@
                 <uni-th align="center">物料代码</uni-th>
                 <uni-th align="center">生产日期</uni-th>
                 <uni-th align="center">数量</uni-th>
+                <uni-th align="center">操作</uni-th>
             </uni-tr>
             <uni-tr v-for="(item,index) in form.items" :key="item.materialsCode">
                 <uni-td align="center" v-for="ite_child in columns" :key="ite_child.key">
@@ -102,7 +98,8 @@ export default {
                 {key: 'CurrentLocation'},
                 {key: 'MaterialCode'},
                 {key: 'ProduceDate'},
-                {key:'Number'}
+                {key:'Number'},
+                {key:'delete'}
             ]
         }
     },
@@ -119,16 +116,19 @@ export default {
                 this.form.items = list;
             }
         },
-        getCheckResult(index){
-            this.form.Destination = this.inventoryStatusList[index];
+        scanMaterial(code){
+
         },
         getCheckResult2(index){
             let instance = this.materialsList[index];
+            let {materialsName,Id,materialsCode,SumNumber} = instance;
             this.form = {
                 ...this.form,
                 materialsInstance:instance,
-                SumNumber:instance.SumNumber,
-                materialsName:instance.materialsName,
+                SumNumber,
+                materialsName,
+                materialsCode,
+                Id,
                 Number:''
             }
         },
