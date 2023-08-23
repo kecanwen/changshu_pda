@@ -104,7 +104,7 @@
 
 							window.localStorage.setItem('userid', response.data.userId);
 							window.localStorage.setItem('username', response.data.userName);
-							window.localStorage.setItem('token', response.data.data.token);
+							window.sessionStorage.setItem('token', response.data.data.token);
 							uni.navigateTo({
 								url: "/pages/home/index",
 							});

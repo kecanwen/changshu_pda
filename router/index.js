@@ -13,7 +13,7 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
 	//这里写登录拦截（我没有写全，如果获取到了token就不用跳转到登录页，就直接next()）
 	if (to.requiresAuth) {
-		var token = window.localStorage.getItem('token');
+		var token = window.sessionStorage.getItem('token');
 		if (!token) {
 			window.localStorage.setItem('userid', '');
 			window.localStorage.setItem('username', '');
@@ -26,6 +26,7 @@ router.beforeEach((to, from, next) => {
 	}
 	next();
 })
+
 // 全局路由后置守卫
 router.afterEach((to, from) => {})
 
