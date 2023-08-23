@@ -2,7 +2,12 @@
     <view>
         <van-form @submit="onSubmit">
             <van-cell-group>
-                <van-field v-model="form.Destination" label="出库口"  @input.enter.native="scanMaterial($event)"/>
+                <van-select label="出库口"
+                            v-model="form.Destination"
+                            option-label="Name"
+                            @defclick="getCheckResult"
+                            :columns="inventoryStatusList">
+                </van-select>
             </van-cell-group>
             <van-cell-group>
                 <van-select label="单据类型"
@@ -46,7 +51,6 @@
                 <uni-th align="center">物料代码</uni-th>
                 <uni-th align="center">生产日期</uni-th>
                 <uni-th align="center">数量</uni-th>
-                <uni-th align="center">操作</uni-th>
             </uni-tr>
             <uni-tr v-for="(item,index) in form.items" :key="item.materialsCode">
                 <uni-td align="center" v-for="ite_child in columns" :key="ite_child.key">
@@ -66,7 +70,7 @@ import uniTh from '../../components/uni-table/components/uni-th/uni-th';
 import uniTd from '../../components/uni-table/components/uni-td/uni-td';
 import axios from 'axios';
 import deliveryService from "../../server/deliveryOrder";
-//import {Toast} from "vant";
+import {Toast} from "vant";
 
 export default {
     name: "deliveryOrder",
@@ -82,7 +86,7 @@ export default {
             showNumber:0,
             form: {
                 Destination: '',//出库口
-                WaveType: '普通出库',//单据类型
+                WaveType: '普通入库',//单据类型
                 Number:'',//数量
                 materialsName:'',//物料信息
                 materialsInstance:{},//物料  实体
@@ -98,39 +102,28 @@ export default {
                 {key: 'CurrentLocation'},
                 {key: 'MaterialCode'},
                 {key: 'ProduceDate'},
-                {key:'Number'},
-                {key:'delete'}
+                {key:'Number'}
             ]
         }
     },
     methods: {
-        async checkSomeRule(key){
+        checkSomeRule(key){
             this.showNumber = false
             if(Number(this.form.Number) > Number(this.form.SumNumber)){
                 Toast({
                     message:'出库数量不能大于库存总数'
                 });
                 this.form.Number = '';
-            }else{
-                const { list } = await deliveryService.GetUnitLoadListApi(this.form)
-                this.form.items = list;
             }
         },
-        scanMaterial(code){
-
+        getCheckResult(index){
+            this.form.Destination = this.inventoryStatusList[index];
         },
         getCheckResult2(index){
             let instance = this.materialsList[index];
-            let {materialsName,Id,materialsCode,SumNumber} = instance;
-            this.form = {
-                ...this.form,
-                materialsInstance:instance,
-                SumNumber,
-                materialsName,
-                materialsCode,
-                Id,
-                Number:''
-            }
+            this.form.materialsInstance = instance;
+            this.form.SumNumber = instance.SumNumber;
+            this.form.materialsName = instance.materialsName;
         },
         deleteFn(item,index){
             let list = this.form.items.filter((ite,idx)=>{
@@ -144,7 +137,7 @@ export default {
             this.getMaterialList();
             this.form = {
                 PalletNo: '',
-                WaveType: '普通出库',
+                WaveType: '普通入库',
                 items: [],
             }
         },
@@ -167,28 +160,9 @@ export default {
           })
         },
         async onSubmit() {
-			this.loading = true;
-			let _this = this;
-			axios.post(this.apiUrl.apiUrl + '/Delivery/Add0rUpdate', {..._this.form
-			}).then(res=>{
-			  this.loading = false;
-			  if(res.data.code === 200){
-				  debugger
-			    this.$toast.loading({
-			      message:res.data.msg || '新增成功',
-				  
-			    });
-				this.initFn();
-			  }else{
-			    this.$toast.loading({
-			      message:res.data.msg || '新增失败'
-			    });
-			  }
-			}).finally(()=>{
-			  
-			})
-            //const { msg } = await deliveryService.Add0rUpdateApi(this.form);
-            //alert(msg)
+            const { list } = await deliveryService.GetUnitLoadListApi(this.form)
+            this.form.items = list;
+            debugger
         }
     },
     created(){

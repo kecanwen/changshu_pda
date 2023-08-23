@@ -1,0 +1,80 @@
+<template>
+	<van-form @submit="onSubmit" style="margin: 3rem;">
+		<van-cell-group v-show='i18n.palletNo[1]==1'>
+			<!--i18n.palletNo[0]-->
+			<van-field v-model="pallet" ref="pallet" label="托盘码"
+				:rules="[{ required: true, message:'请提供托盘码'/*i18n.palletNoMsg*/ }]" required />
+		</van-cell-group>
+
+		<van-cell-group v-show='i18n.location[1]==1'>
+			<!--i18n.location[0]-->
+			<van-field v-model="fromLocCode" label="入库口"
+				:rules="[{ required: true, message: '请提供入库口'/*i18n.locationMsg*/ }]" required />
+		</van-cell-group>
+
+		<div style="margin: 2rem;">
+			<!--{{i18n.submit}}-->
+			<van-button :loading="loading" round block type="info" native-type="submit">
+				确定
+			</van-button>
+		</div>
+
+	</van-form>
+</template>
+
+<script>
+	import axios from 'axios';
+	import {
+		Toast
+	} from 'vant';
+
+	export default {
+		data() {
+			return {
+				pallet: '',
+				fromLocCode: '',
+				loading: false
+			}
+		},
+		computed: {
+			i18n() {
+				return this.$t('putaway')
+			}
+		},
+		mounted: function() {
+			uni.setNavigationBarTitle({
+				title: this.$t('putaway').title
+			});
+			this.$nextTick(() => {
+				this.$refs.pallet.focus();
+			});
+		},
+		methods: {
+			onSubmit() {
+				this.loading = true;
+				let _this = this;
+				axios.post(this.apiUrl.apiUrl + '/ReceiveOrder/GroundingAPI', {
+					"PalletNo": this.pallet,
+					"LocationCode": this.fromLocCode
+				}).then(res => {
+					this.loading = false;
+					console.log(res.data.code);
+					if (res.data.code == 400) {
+						Toast({
+							message: res.data.msg
+						});
+					} else {
+						Toast({
+							message: res.data.msg
+						});
+					}
+				})
+
+
+			}
+		}
+	}
+</script>
+
+<style>
+</style>
